@@ -1,0 +1,51 @@
+---
+title: Syllabus
+in_menu: true
+routed_title: Syllabus
+---
+
+_Note: in order to play the pencast files you need to download and install [livescribe desktop](http://www.livescribe.com/en-us/smartpen/desktop.html)._
+
+|---
+| Lecture | Slides | Chapter | Extras |
+|:-:|:-|:-|:-|:-|
+| 1/17 | [Introduction](../Lectures/introduction/main.pdf) | | [Tracking](../Lectures/student/willie.pdf), [Gambling](../Lectures/student/zech.pdf), [Text](../Lectures/student/adler.pdf) 
+| 1/19 |  [Sum and Product Rules](../Lectures/sum_and_product_rules.pdf) <br> Introduction to Matlab| 1 | [CPT Sum Prod Rule - main.m](../Code/matlab_and_basic_prob_intro/main.m)<br>[Intro to Matlab](http://www.stat.columbia.edu/~fwood/w4315/Code/introduction_to_matlab/general_matlab_demo.m) |
+| 1/24 | [Bayesian Inference](../Lectures/introduction/bayesian_inference.pdf) | | [main.m](../Code/introduction_to_bayes/main.m)<br>[generate_example_data.m](../Code/introduction_to_bayes/generate_example_data.m)<br>[plot_flips.m](../Code/introduction_to_bayes/plot_flips.m)
+| 1/26 | [Markov Random Fields](../Lectures/markov_random_fields.pdf) & [Graphical Models](../Lectures/graphical_model_notation.pdf) | 8 |
+| 1/31 | [Computational Aspects of Discrete and Linear Gaussian Models](../Lectures/discrete_and_linear_gaussian_models.pdf) | 8.1 |
+| 2/2 | [Conditional Independence](../Lectures/conditional_independence.pdf) & <br>  | 8.2-3 | 
+| 2/7 | [Inference in Graphical Models & Factor Graphs](../Lectures/inference_on_a_chain.pdf) | 8.4 |
+| 2/9 | cont.
+| 2/14 | [Sum product Algorithm (Belief Propagation)](../Lectures/factor_graphs_and_the_sum_product_algorithm.pdf) 
+| 2/16 | cont.
+| 2/21 | cont.
+| 2/23 | [K-means](../Lectures/mixture_models_and_em_for_gmm.pdf), [Gaussian Distribution](../Lectures/mvn_review.pdf) | 9.1 |
+| 2/28 | [Gaussian Mixture Models](../Lectures/mixture_models_and_em_for_gmm.pdf) | 9.1 |
+| 3/1 | [Expectation Maximization for GMM's](../Lectures/mixture_models_and_em_for_gmm.pdf) |9.2|
+| 3/6 | cont.
+| 3/8 | [Generalized EM](../Lectures/em_in_general.pdf) <br> |9.4|
+| 3/20 | cont.
+| 3/22 | [EM for linear regression](../Lectures/em_for_bayesian_regression.pdf),[(pencast)](../Lectures/em_for_bayesian_linear_regression.pencast)
+| 3/27 | [Variational Inference](../Lectures/varitional_inference.pdf) | 10.1
+| 3/29 | [Variational Inference Cont.](../Lectures/vb_2d_gaussian.pdf) | 10.1
+| 4/3 | [Variational GMM](../Lectures/vb_gmm.pdf) | 10.2
+| 4/5 | [Variational Inference Usage](../Lectures/vb_usage.pdf) | 10.6
+| 4/10 | [Basic sampling methods](../Lectures/sampling_basic.pdf) | 11.1
+| 4/12 | [Markov chain Monte Carlo](../Lectures/MCMC.pdf) | 11.2
+| 4/17 | [LDA](../Lectures/lda_lecture.pdf) 
+| 4/19 | [(Hidden) Markov Models]() | 13.1
+| 4/24 | [Forward backward, Viterbi, Sum product again]() | 13.2
+| 4/26 | [Linear dynamical systems, Kalman filter]() | 13.3
+<!--| 27 | 
+| 28 | 
+| [PCA]() | 12.1 28 | [Particle filtering]() 
+| 23 | 
+| 24 | [Gaussian Processes]() | 6.4
+| 25 | [Neural Networks]()
+| 26 | [Neural Networks Cont.]()
+| 27 | Guest Lecture, Application Talk, TBA
+| 28 | Guest Lecture, Application Talk, TBA
+| 29 | Guest Lecture, Application Talk, TBA
+| 30 | Guest Lecture, Application Talk, TBA
+| 31 | Guest Lecture, Application Talk, TBA-->

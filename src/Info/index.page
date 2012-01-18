@@ -1,0 +1,55 @@
+---
+title: Info
+in_menu: true
+routed_title: Info
+---
+Big Picture
+-----------
+
+W4240 is a master's / advanced undergraduate level course in data mining, pattern recognition, and statistical machine learning.  W6240 is the same but for PhD's.  Extra work will be required of the PhD students.
+
+High Level Syllabus 
+--------------------
+
+This course will be divided into roughly six parts, five structured, the sixth, a grab bag which may include presentations from other faculty and students who specialize in particular techniques.  Each section except the last will be accompanied by a programming project.  The subject of the programming project is listed below the topic for each section.
+
+* Introduction / Review
+  * Iterated Conditional Modes
+* Graphical Models
+  * Belief propagation on discrete Bayes nets
+* Expectation Maximization (EM)
+  * EM for linear regression
+  * EM for Gaussian mixture models (GMM)
+* Variational Inference
+  * Variational GMM
+* Sampling
+  * Bayesian Logistic Regression
+  * Latent Dirichlet Allocation (LDA)
+* Miscellaneous Topics	
+  * Regression
+    * Bayesian linear regression, Gaussian process regression
+  * Sequential Data
+    * Kalman and particle filtering
+  * K-means
+  * Neural nets
+  * Dimensionality reduction
+  * Bayesian nonparametrics
+  * Matrix factorization
+
+Miscellaneous Course Information
+--------------------------------
+
+* Text 
+	* _Pattern Recognition and Machine Learning_ Christopher M. Bishop.  Springer, 2006.
+
+* Prerequisites 
+	* Calculus; probability and statistics at the level of W4150, or W4105 and W4107 taken concurrently.
+	* Linear algebra.
+	* Introductory level programming (java, matlab, c)
+
+* Grading 
+	* Grades will be assigned on a curve, using the following percentages: 50% Homework, 50% Final Project.  Active participation can move you up a half a grade.  No participation can move you down half a grade.  
+
+
+* Computing: 
+	* You will be required to use Matlab to complete your homework assignments.  Software of your choice may be used to complete the final project.  See the [ACIS page](http://www.columbia.edu/acis/) for information on software and computing labs.  

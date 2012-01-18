@@ -1,0 +1,96 @@
+% Essential Formatting
+
+\documentclass[12pt]{article}
+\usepackage{epsfig,amsmath,amsthm,amssymb,textcomp}
+\usepackage[questions, answersheet]{../../urmathtest}[2001/05/12]
+
+\def\ds{\displaystyle}
+
+\newcommand{\ansbox}[1]
+{\work{
+  \pos\hfill \framebox[#1][l]{ANSWER:\rule[-.3in]{0in}{.7in}}
+}{}}
+
+\newcommand{\ansrectangle}
+{\work{
+  \pos\hfill \framebox[6in][l]{ANSWER:\rule[-.3in]{0in}{.7in}}
+}{}}
+
+
+% Beginning of the Document
+
+\begin{document}
+\examtitle{DATA MINING W4240}{HOMEWORK 4}{09/14/2010}
+
+\begin{center}
+	Professor: Frank Wood
+\end{center}
+
+% Problems Start Here % ----------------------------------------------------- %
+
+{\bf Preliminary Instructions}
+
+\begin{enumerate}
+	\item Download the skeleton code for the assignment at \\  http://www.stat.columbia.edu/$\sim$fwood/w4240/Homework/index.html
+	\item Unzip the downloaded material in an appropriate folder, something like w4240/hw5/
+	\item Open MATLAB and navigate to the folder containing the downloaded material
+\end{enumerate}
+
+In this homework you need to simulate from the posterior distribution of two different models using a Markov chain.  The first model is a Bayesian logistic regression model and the second is a model known as latent Dirichlet allocation (LDA).  The deliverable for the homework includes both code and a short write up of the results.\\
+
+\problem{50}{For this problem you need to analyze the results of a study on arthritis using a Bayesian logistic regression model.  The data consists of covariates $X$ and a response $Y$.  In this study, the reponse $Y$ is a binary variable ($y_i \in \{0,1\}$), which indicates if the patient improved over the course of the study.  The design matrix $X$ contains characteristics of each patient.  The column headers describe each column of $X$ and are found in the cell array $h$.  The design matrix $X$ includes an intercept term as the first column. There are three unique covariates for each patient, they are $treatment$, indicating they did or did not have the the treatment, $male$, indicating they are or are not male, and $log age$, which is the natural logarithm of their age.  The design matrix also includes all the interaction terms.  The model is
+
+\begin{eqnarray*}
+  \frac{1}{\sigma} &\sim& {\rm Gamma}(a,b)\\
+  \beta &\sim& {\rm Normal}(\vec \mu, \sigma {\bf I}_8)\\
+  P(Y = 1) &\sim& \frac{e^{X\beta}}{1 + e^{X\beta}}.
+\end{eqnarray*}
+
+To answer the following questions you need to first generate a large sample from the posterior distribution of the latent parameters using a Markov Chain Metropolis-Hastings sampler.  You can use the resulting sample to answer the questions:
+
+\begin{enumerate}
+  \item{What is the expected probability of improvement for an 80 year old male receiving treatment?}
+  \item{What is the expected probability of improvement for an 80 year old male not receiving treatment?}
+  \item{What is the expected increase in the probability of improvement for an 80 year old male if he receives treatment?}
+  \item{What is the posterior probability that the treatment is beneficial for 80 year old males?}
+\end{enumerate}
+
+You need to answer these questions in a seperate document, preferably in \LaTeX. Regardless of what you use to write the report your submission will need to be a PDF file. You should include diagnostic plots to demonstrate that your Markov chain converged as well as what burn in you chose to use and why.\\ \\}
+
+
+\problem{50}{For this problem you will estimate the LDA model on a corpus consisting of abstracts from NIPS papers over the last several years.  After you estimate the model you again need to use the output to answer questions about the corpus. The data for this model are in bagofwords\_nips.mat, words\_nips.mat, and title\_nips.mat.  When you load the data you will load two variables, $DS$, and $WS$.  The variable $WS$ contains a row vector of integers.  Each integer represents a word.  A given integer $i$ represents the word found in $WO\{i\}$. The variable $DS$ contains a row vector of the same length with a number indicating which document number the word comes from. If the document number is $j$ then the title of that document can be found as $titles\{j\}$.  Fit the model with 20 topics using an MCMC sampler in the collapsed representation and use the single sample with the highest joint log likelihood to answer the following questions : 
+
+\begin{enumerate}
+\item{What are the top ten most probable words for each of the 20 topics?}
+\item{One can consider the distribution over topics as a low dimensional representation of a document.  We can use the dot product between topic distributions for two documents as a similarity metric.  What are the ten most similar documents to the first document, ``Connectivity Versus Entropy''?}
+\end{enumerate}
+
+Again, submit your answers in a seperate \LaTeX write up.  You should include a trace plot of the joint log likelihood of the model to show convergence of the sampler.  {\bf BE AWARE THAT RUNNING THE SAMPLER ON THE ENTIRE CORPUS WILL BE SLOW AND YOU NEED TO START WORKING ON THIS HW EARLY BECAUSE YOU MAY NEED TO RUN THE SAMPLER FOR A COUPLE OF DAYS}. You can save the output once the sampler has run using the save command in MATLAB so you don't have to re-run the sampler once you have good results.\\ \\}
+
+
+{\bf Submitting your HW}
+
+You must complete this HW assignment on your own, you are not permitted to work with any one else on the completion of this task.  Your grade will reflect your ability to implement a working version of the procedure. The write up you submit {\bf MUST BE A PDF FILE}.
+
+\begin{enumerate}
+	\item Send an email to w4240.spring2011.stat.columbia.edu@gmail.com
+	\item {Attach updated Matlab files and your \LaTeX write up 
+		\begin{enumerate}
+			\item write\_up.pdf
+			\item joint\_log\_lik.m
+			\item sample\_topic\_assignment.m
+			\item log\_liklihood\_prior.m
+			\item logistic\_log\_likelihood.m
+			\item sample\_beta.m
+			\item sample\_sigma.m
+		\end{enumerate} It is imperative that the names be exactly as described here. There should be no folders attached.  You may attach other MATLAB code files if they act as utility functions for the other programs. }
+	\item The subject will be exactly your Columbia UNI followed by a colon followed by hw5.  For example, if the TA were submitting this homework the subject would read {\bf nsb2130:hw5}
+	\item If you submit hw more than once, later files will overwrite earlier files.
+\end{enumerate}
+
+% Problems End Here % ------------------------------------------------------- %
+
+\problemsdone
+\end{document}
+
+% End of the Document

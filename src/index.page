@@ -1,0 +1,40 @@
+---
+title: Home
+in_menu: true
+routed_title: Home
+sort_info: 0
+---
+
+Data mining:  What is it?
+
+Data mining is all about two things: automation (i.e. computers, programming, etc.) and inference (i.e. statistics, machine learning, etc.).  In other words, given a huge amount of data, how can we build tools to learn from it automatically?  There are very general tools that have been developed to answer these kinds of problems.  In this class you'll learn about them in a very hands on and practical way.  You will actually build the tools you will need in the future when you "do" data mining.
+
+This course is designed to give you the tools to implement and understand the kind of inference algorithms one might wish to use in data mining applications.  For this reason the course could just as well be titled introductory statistical machine learning.
+
+We will cover graphical models, inference in graphical models, sampling, variational inference, and then a raft of specific models for clustering, regression, and classification.
+
+You can expect to learn not only what techniques are out there, but how to implement and extend them.  You will be tested in this respect by being asked to complete challenging programming assignments and to use your gained knowledge at the end of the course to complete an interesting final project on a subject of your own personal interest.
+
+--- name:sidebar
+<strong>Term: </strong> 
+Spring 2012<br>
+<strong>Time: </strong> 
+Tu-Th, 06:10P-07:25P<br>
+<strong>Location : </strong>
+TBA<br>
+<strong>Professor: </strong> 
+Frank Wood<br>
+<strong>Email: </strong> 
+fwood@stat.columbia.edu<br>
+<strong>Office:</strong><br> 
+Room 1017<br> School of Social Work<br>
+<strong>Hours:</strong> <br>
+TBA<br>
+<strong>TA: </strong> 
+TBA<br>
+<strong>Email: </strong> 
+TBA<br>
+<strong>Office:</strong><br> 
+NA<br> School of Social Work<br>
+<strong>Hours:</strong> <br>
+TBA<br>

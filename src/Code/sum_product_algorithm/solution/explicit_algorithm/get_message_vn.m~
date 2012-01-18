@@ -1,0 +1,21 @@
+function message = get_message_vn(to_node, this_node)
+
+for i = 1 : length(this_node.c)
+    if ~strcmp(this_node.c{i},to_node.name)
+        cmnd = ['get_message_' this_node.c{i}
+    end
+    
+    
+    
+    if ~strcmp(node.c{i},to_node_name);
+        cmnd = ['get_message_' node.c{i} '(this_node_name,nodes);'];
+        node.m{i} = eval(cmnd);
+    end
+end
+
+message = ones(size(node.m{1},1),1);
+for i = 1:length(node.m)
+    if ~strcmp(node.c,to_node_name)
+        message = message .* node.m{i};
+    end
+end

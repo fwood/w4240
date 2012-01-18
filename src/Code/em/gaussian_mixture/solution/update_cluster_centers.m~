@@ -1,0 +1,14 @@
+function new_centers = update_cluster_centers(cluster_centers,data)
+%cluster centers are column vectors
+
+[n d] = size(data);
+k = size(cluster_centers,2);
+
+dist = zeros(n,k);
+for i = 1 : k
+    dd = data - repmat(cluster_centers(:,k)',n,1);
+    dd = dd.^2;
+    dist(:,k) = sqrt(sum(dd,2));
+end
+
+[m l] = min(dist,

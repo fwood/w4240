@@ -1,0 +1,16 @@
+function message = get_message_vn(to_node, this_node)
+%Calculate the message in the variable node this_node to pass to the  variable node. 
+
+
+for i = 1 : length(this_node.c)
+    if ~strcmp(this_node.c{i}.name,to_node.name)
+        cmnd = ['get_message_' this_node.c{i}.name '(this_node)'];
+        this_node.m{i} = eval(cmnd);
+    end
+end
+
+if this_node.set
+    ?;
+else
+    ?;
+end

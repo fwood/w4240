@@ -1,0 +1,9 @@
+function plot_data(X,labels)
+
+pc = princomp(X);
+
+if nargin > 1
+
+else
+    gscatter
+end

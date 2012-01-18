@@ -1,0 +1,48 @@
+---
+title: Syllabus
+in_menu: true
+routed_title: Syllabus
+---
+
+_Note: in order to play the pencast files you need to download and install [livescribe desktop](http://www.livescribe.com/en-us/smartpen/desktop.html)._
+
+|---
+| Lecture | Slides | Chapter | Extras |
+|:-:|:-|:-|:-|:-|
+| 00 | [Introduction](../Lectures/introduction/main.pdf) | | [Intro to Matlab](http://www.stat.columbia.edu/~fwood/w4315/Code/introduction_to_matlab/general_matlab_demo.m)<br>[my_regress.m](http://www.stat.columbia.edu/~fwood/w4315/Code/introduction_to_matlab/my_regress.m)<br>[CH01PR19.txt](http://www.stat.columbia.edu/~fwood/w4315/Code/introduction_to_matlab/CH01PR19.txt)<br>[plot_gpa_fit.m](http://www.stat.columbia.edu/~fwood/w4315/Code/introduction_to_matlab/plot_gpa_fit.m) |
+| 01 | [Sum and Product Rules](../Lectures/sum_and_product_rules.pdf) <br> [Bayes Nets](../Lectures/graphical_model_notation.pdf) <br> 
+| 02 | cont.
+| 03 | [Computational Aspects of Discrete and Linear Gaussian Models](../Lectures/discrete_and_linear_gaussian_models.pdf) | 8.1 |
+| 04 | [Conditional Independence & ](../Lectures/conditional_independence.pdf) <br> [Markov Random Fields](../Lectures/markov_random_fields.pdf) | 8.2-3 | 
+| 05 | [Inference in Graphical Models & Factor Graphs](../Lectures/inference_on_a_chain.pdf) | 8.4 |
+| 06 | cont.
+| 07 | [Sum product Algorithm (Belief Propagation)](../Lectures/factor_graphs_and_the_sum_product_algorithm.pdf) 
+| 08 | cont.
+| 09 | cont.
+| 10 | [K-means clustering and Gaussian Mixture Models](../Lectures/mixture_models_and_em_for_gmm.pdf) | 9.1 |
+| 11 | [Expectation Maximization for GMM's](../Lectures/mixture_models_and_em_for_gmm.pdf) |9.2|
+| 12 | cont.
+| 13 | [Generalized EM](../Lectures/em_in_general.pdf) <br> |9.4|
+| 14 | cont.
+| 15 | [EM for linear regression](../Lectures/em_for_bayesian_regression.pdf),[(pencast)](../Lectures/em_for_bayesian_linear_regression.pencast)
+| 16 | [Variational Inference](../Lectures/varitional_inference.pdf) | 10.1
+| 17 | [Variational Inference Cont.](../Lectures/vb_2d_gaussian.pdf) | 10.1
+| 18 | [Variational GMM](../Lectures/vb_gmm.pdf) | 10.2
+| 19 | [Variational Inference Usage](../Lectures/vb_usage.pdf) | 10.6
+| 20 | [Basic sampling methods]() | 11.1
+| 21 | [Markov chain Monte Carlo]() | 11.2 | [Neal tech. report](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.36.9055&rep=rep1&type=pdf)
+| 22 | cont. | 11.3
+| 23 | [PCA]() | 12.1
+| 24 | [(Hidden) Markov Models]() | 13.1
+| 25 | [Forward backward, Viterbi, Sum product again]() | 13.2
+| 26 | [Linear dynamical systems, Kalman filter]() | 13.3
+| 27 | [Particle filtering]() 
+<!--| 23 | 
+| 24 | [Gaussian Processes]() | 6.4
+| 25 | [Neural Networks]()
+| 26 | [Neural Networks Cont.]()
+| 27 | Guest Lecture, Application Talk, TBA
+| 28 | Guest Lecture, Application Talk, TBA
+| 29 | Guest Lecture, Application Talk, TBA
+| 30 | Guest Lecture, Application Talk, TBA
+| 31 | Guest Lecture, Application Talk, TBA-->

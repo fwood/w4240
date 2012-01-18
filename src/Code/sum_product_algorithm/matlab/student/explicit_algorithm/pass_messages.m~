@@ -1,0 +1,35 @@
+function pass_messages(from_node, m, node)
+
+
+
+
+
+
+
+if strfind(node.name,'fn_') == 1
+    vn = false;
+else
+    vn = true;
+end
+
+for i = 1 : length(node.c)
+    child = node.c{i};
+    
+    index = 0;
+    for j = 1 : length(child.c)
+        if strcmp(child.c{j}.name, node.name)
+            index = j;
+            break;
+        end
+    end
+    assert(index > 0);
+    
+    if vn
+        message = get_message_vn(child,node);
+    else
+        cmnd = ['get_message_' node.name '(child)'];
+        message = eval(cmnd);
+    end
+    
+    child.m{index} = message;
+end

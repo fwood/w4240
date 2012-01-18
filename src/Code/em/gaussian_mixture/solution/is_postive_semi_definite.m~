@@ -1,0 +1,8 @@
+function is  = is_postive_semi_definite(A)
+
+[m n] = size(A);
+is = m == n;
+if is
+    e = eig(A);
+    
+end

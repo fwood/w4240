@@ -1,0 +1,42 @@
+function beta = sample_beta(beta, sigma, X, Y, a, b, mu)
+
+scaling = 1.5;
+% proposal_cov{1} = scaling * [1.4096   -0.3011   -0.1182   -0.0253
+%                             -0.3011    1.2560   -0.7064    0.0044
+%                             -0.1182   -0.7064    1.3486   -0.0009
+%                             -0.0253    0.0044   -0.0009    0.0006];
+
+proposal_cov{1} = scaling * [2.3403   -0.6729   -0.2233   -0.6149
+   -0.6729    2.6141    0.0306    0.1772
+   -0.2233    0.0306    1.7110    0.0581
+   -0.6149    0.1772    0.0581    0.1706];
+
+% proposal_cov{2} = scaling * [ 0.3047    0.0029   -0.0009   -0.0021
+%                               0.0029    0.0006   -0.0002   -0.0003
+%                              -0.0009   -0.0002    0.0010   -0.0007
+%                              -0.0021   -0.0003   -0.0007    0.0011]; 
+proposal_cov{2} = scaling * [ 1.3852   -0.0014   -0.0119   -0.1616
+   -0.0014    0.0728   -0.0066    0.0012
+   -0.0119   -0.0066    0.1969   -0.0575
+   -0.1616    0.0012   -0.0575    0.0847];
+
+ll = logistic_log_likelihood(beta, X, Y) + log_likelihood_parameters(beta, sigma, a, b, mu);
+
+beta_prop = mvnrnd(beta(1:4),proposal_cov{1});
+ll_prop = logistic_log_likelihood([beta_prop' ; beta(5:8)], X, Y) + log_likelihood_parameters([beta_prop' ; beta(5:8)], sigma, a, b, mu);
+
+r = exp(ll_prop - ll);
+if rand < r
+    beta(1:4) = beta_prop;
+    ll = ll_prop;
+end
+
+beta_prop = mvnrnd(beta(5:8),proposal_cov{2});
+ll_prop = logistic_log_likelihood([beta(1:4) ; beta_prop'], X, Y) + log_likelihood_parameters([beta(1:4) ; beta_prop'], sigma, a, b, mu);
+
+r = exp(ll_prop - ll);
+if rand < r
+    beta(5:8) = beta_prop;
+end
+
+end

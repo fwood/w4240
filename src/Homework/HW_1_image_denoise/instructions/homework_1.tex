@@ -1,0 +1,87 @@
+% Essential Formatting
+
+\documentclass[12pt]{article}
+\usepackage{epsfig,amsmath,amsthm,amssymb,textcomp}
+\usepackage[questions, answersheet]{../../urmathtest}[2001/05/12]
+%\usepackage[answersheet]{urmathtest}[2001/05/12]
+%\usepackage[answers]{urmathtest}[2001/05/12]
+
+
+% For use with pdflatex
+% \pdfpagewidth\paperwidth
+% \pdfpageheight\paperheight
+
+% Basic User Defs
+
+\def\ds{\displaystyle}
+
+\newcommand{\ansbox}[1]
+{\work{
+  \pos\hfill \framebox[#1][l]{ANSWER:\rule[-.3in]{0in}{.7in}}
+}{}}
+
+\newcommand{\ansrectangle}
+{\work{
+  \pos\hfill \framebox[6in][l]{ANSWER:\rule[-.3in]{0in}{.7in}}
+}{}}
+
+
+% Beginning of the Document
+
+\begin{document}
+\examtitle{DATA MINING W4240}{HOMEWORK 1}{01/27/2011}
+
+\begin{center}
+	Professor: Frank Wood
+\end{center}
+
+% Problems Start Here % ----------------------------------------------------- %
+
+{\bf Getting Started}
+\begin{enumerate}
+	\item Download the skeleton code for the assignment at \newline http://www.stat.columbia.edu/$\sim$fwood/w4240/Homework/HW\_1\_image\_denoise/hw\_1.tar.gz.
+	\item Extract the downloaded file in an appropriate folder, something like w4240/hw1/code
+	\item { The downloaded files include 
+		 \begin{enumerate}
+			\item {\bf denoise\_student.m}
+			\item {\bf local\_potential\_student.m}
+			\item {\bf get\_parameters\_student.m}
+			\item {\bf denoise\_student\_alternative.m}
+			\item{\bf num\_pixels\_wrong.m}
+			\item {\bf data.mat}
+		\end{enumerate}
+	}
+	\item Open MATLAB and navigate to the folder containing the downloaded material
+\end{enumerate}
+
+You must complete this HW assignment on your own, you are not permitted to work with any else on the completion of this task.  Your grade will mostly reflect your ability to implement a working version of the procedure.  Submitted code must run on an image of my choosing with arbitrary dimensions.  A part of the grade will reflect the results obtained by running your code on a noisy image of my choosing, not the image provided during the homework.  Grading will be automated and the submitted files will be run, therefore to submit the HW you will need to follow the following directions exactly.
+
+\begin{enumerate}
+	\item Send an email to Stat.W4240@gmail.com
+	\item Attach the following filled-in MATLAB files individually 
+	\begin{itemize}
+		\item {\bf local\_potential\_student.m}
+		\item {\bf get\_parameters\_student.m} 
+		\item {\bf denoise\_student\_alternative.m}.
+	\end{itemize}
+	 It is imperative that these {\em exact} file names be used.  You may attach other files if you use them in your code as long as they have the .m extension (for instance helper functions, etc.).
+	\item The subject of the email must be your Columbia UNI followed by a colon followed by hw1 {\em exactly}.  For example, if the TA were submitting this homework the subject would be {\bf nsb2130:hw1} (nothing more, nothing less).
+	\item Submit your homework only once!
+\end{enumerate}
+
+\problem{100}{The assignment is to implement iterated conditional modes for image de-noising (the image de-noising example presented in section 8.3.3 of Pattern Recognition and Machine Learning)   Skeleton code is provided. The steps to complete the project are :
+	\begin{enumerate}
+		\item Read and understand the file {\bf denoise\_student.m} and {\bf num\_pixels\_wrong}.
+		\item Fill out the files {\bf get\_parameters\_student.m} and {\bf local\_potential\_student.m} with appropriate logic.
+		\item (Optional) Fill out {\bf denoise\_student\_alternative.m} with any logic you think makes sense as an image de-noiseing procedure.  The only requirement is that it must run in under 5 minutes.
+	\end{enumerate}
+	
+	If you have navigated to the correct folder in MATLAB, then typing denoise\_student() in the command line will run the program so you can check your work and see how you are doing.
+}
+
+% Problems End Here % ------------------------------------------------------- %
+
+\problemsdone
+\end{document}
+
+% End of the Document

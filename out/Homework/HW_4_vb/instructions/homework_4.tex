@@ -1,0 +1,84 @@
+% Essential Formatting
+
+\documentclass[12pt]{article}
+\usepackage{epsfig,amsmath,amsthm,amssymb,textcomp}
+\usepackage[questions, answersheet]{../../urmathtest}[2001/05/12]
+
+\def\ds{\displaystyle}
+
+\newcommand{\ansbox}[1]
+{\work{
+  \pos\hfill \framebox[#1][l]{ANSWER:\rule[-.3in]{0in}{.7in}}
+}{}}
+
+\newcommand{\ansrectangle}
+{\work{
+  \pos\hfill \framebox[6in][l]{ANSWER:\rule[-.3in]{0in}{.7in}}
+}{}}
+
+
+% Beginning of the Document
+
+\begin{document}
+\examtitle{DATA MINING W4240}{HOMEWORK 4}{03/24/2011}
+
+\begin{center}
+	Professor: Frank Wood
+\end{center}
+
+% Problems Start Here % ----------------------------------------------------- %
+
+{\bf Preliminary Instructions}
+
+\begin{enumerate}
+	\item Download the skeleton code for the assignment at \\  http://www.stat.columbia.edu/$\sim$fwood/w4240/Homework/index.html
+	\item Unzip the downloaded material in an appropriate folder, something like w4240/hw4/
+	\item Open MATLAB and navigate to the folder containing the downloaded material
+\end{enumerate}
+
+In this homework you need to implement variational Bayesian inference for the gaussian mixture model.  You will also need to implement the k-means algorithm.  The clustering obtained by k-means will then be used as an initialization for the variational algorithm.\\ 
+
+\problem{25}{Implement a k-means clustering algorithm.  This should be done by filling out the two functions {\bf update\_cluster\_centers.m} and  {\bf k\_means.m}.  The final return will be a list of cluster assignments, one for each data point.  After writing these functions you should be able to cluster $d$-dimensional data using the algorithm.  Since you will be using the output as an initialization you should program the algorithm in such a way that it returns $k$ clusters, i.e., that it does not collapse to fewer clusters than the input number $k$.  If you find that a cluster has no data points assigned to it during the algorithm, one potential solution is to assign that cluster mean to the value of a randomly chosen data point.  K-means is an iterative algorithm, but in this code you can hardcode the number of iterations to 10.\\ \\}
+
+
+\problem{75}{Implement the variational Bayes inference algorithm for a gaussian mixture model and evaluate its performance on Fisher's Iris data.  To do this, you will need to implement the functions {\bf get\_r.m}, {\bf get\_other\_parameters.m}, {\bf expected\_rand\_index.m}, {\bf simulate\_z.m}, and {\bf variational\_lower\_bound.m}. More explicit direction regarding the functionality of these programs can be found in the header of each file.  The naming of variables in these programs is designed to mirror the example given in your text book.  If you are confused about what certain variables are please refer there first before asking the TA.  You will also need to fill out values for $K$ and the parameters of the prior distributions in the file {\bf main.m}.  As the iteration progresses you should note that the variational lower bound continues to increase and the algorithm only stops when there is apparent convergence.  
+
+
+After convergence is reached, the code in the main file is designed to answer the question, how many of the $K$ mixture components actually show up in the data.  Given that the data is a classification of Iris plants based on measurements of the plant, this question translates into ``How many species of Iris are in the population we are examining?".  To get a valid answer to this question you need to set $K$ high enough that it can collapse to a value supported by the data.  The answer to this question is estimated through sampling.  That is, given the estimated distribution over the cluster assignments $Z$, we sample $Z$ and then consider how many cluster centers the sample is allocated.  This allows us to get an empirical estimate of the distribution of the number of cluster centers in the estimated posterior.  To get a point estimate we consider the expected number of cluster centers which we estimate with the mean of the sample.
+
+
+The  Rand index is a metric for comparing clusterings of data.  A low value of the  Rand index indicates that two clusterings are close.  Consider a  clustering $\mathcal{A} = \{a_1,a_2, \ldots, a_k \} $  where $a_i$ is the set of elements in the data $X$ in cluster $i$, and define the function SameCluster($i,j, \mathcal{A}$) = 1 if $x_i, x_j \in a_h$ and 0 otherwise.  Then, given two clustering $\mathcal{A}$ and $\mathcal{B}$ we define the  Rand index as
+
+$$\frac{1}{{N \choose 2}} \sum_{i  = 1}^N \sum_{j = i +1}^N \left[ ({\rm SameCluster(}i,j,\mathcal{A}) + {\rm SameCluster(}i,j,\mathcal{B})) \mod 2 \right].$$
+
+\noindent Since the result of the variational Bayes procedure is a distribution, we do not have a clustering directly, but instead have a distribution over clusterings.  So, instead we need to use the expected  Rand index to compare a clustering to the true clustering.  Since the distribution from the variational approximation has independent cluster assignments this means we can inspect each pair of observations separately to find the probability they are in the same cluster for each of the $K$ clusters.  Then, compare the probability that they are in the same cluster to the true labels and calculate the expectation of the contribution the pair makes to the  Rand index.  This is done separately for each pair of data points and the result is divided by ${N \choose 2}$ to get the expected  Rand index.
+
+ You will notice in the main file that the output from the $k$-means clustering algorithm is used to inform the initialization of the variational Bayes algorithm.  Also, included in the HW material is a function which plots $d$-dimensional data by plotting the first two $PCA$ components.  This is just a trick to help in seeing the clusters in $d$-dimensional data when $d > 2$.\\ \\}
+
+{\bf Submitting your HW}
+
+You must complete this HW assignment on your own, you are not permitted to work with any one else on the completion of this task.  Your grade will reflect your ability to implement a working version of the procedure.  Submitted code must run on my machine in less than 3 minutes.  Grading will be automated and the submitted files will be run, therefore to submit the HW you will need to follow the following directions exactly.
+
+\begin{enumerate}
+	\item Send an email to w4240.spring2011.stat.columbia.edu@gmail.com
+	\item {Attach your updated MATLAB files 
+		\begin{enumerate}
+			\item {\bf update\_cluster\_centers.m} 
+			\item	 {\bf k\_means.m}
+			\item  {\bf get\_r.m}
+			\item {\bf get\_other\_parameters.m}
+			\item  {\bf expected\_rand\_index.m}
+			\item {\bf simulate\_z.m}
+			\item {\bf variational\_lower\_bound.m}
+			\item  {\bf main.m}
+		\end{enumerate} It is imperative that the names be exactly as described here. There should be no folders attached, only raw .m files.  You may attach other MATLAB code files if they act as utility functions for the other programs. }
+	\item The subject will be exactly your Columbia UNI followed by a colon followed by hw4.  For example, if the TA were submitting this homework the subject would read {\bf nsb2130:hw4}
+	\item If you submit hw more than once, later files will overwrite earlier files.
+\end{enumerate}
+
+% Problems End Here % ------------------------------------------------------- %
+
+\problemsdone
+\end{document}
+
+% End of the Document

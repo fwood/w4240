@@ -1,0 +1,5 @@
+function dist = get_marginal_distribution(node);
+%This 
+
+%must be a variable node
+assert(strfind(node.name,'vn_') == 1)

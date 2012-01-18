@@ -1,0 +1,14 @@
+function message = get_message_fn_aj(to_node);
+
+global fn_aj
+
+node = fn_aj;
+
+%get messages from children
+for i = 1 : length(node.c)
+    if ~strcmp(node.c{i}.name,to_node.name)
+        node.m{i} = get_message_vn(node,node.c{i});
+    end
+end
+
+%factor matrix indexed by

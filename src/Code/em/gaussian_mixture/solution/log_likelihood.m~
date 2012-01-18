@@ -1,0 +1,12 @@
+function ll = log_likelihood(data,mu,sigma,pi)
+% Calculates the log likelihood of the data given the parameters of the
+% model
+
+k = size(pi,1);
+ll = zeros(size(data,1),1);
+
+for i = 1:k
+    ll = ll + pi(i) * mvnpdf(data,mu(:,i)',sigma{i});
+end
+
+ll = sum(log(ll));

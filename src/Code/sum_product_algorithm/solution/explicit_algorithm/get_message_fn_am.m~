@@ -1,0 +1,23 @@
+function message = get_message_fn_am(to_node);
+
+global fn_am
+
+node = fn_am;
+
+%get messages from children
+for i = 1 : length(node.c)
+    if ~strcmp(node.c{i}.name,to_node.name)
+        node.m{i} = get_message_vn(node,node.c{i});
+    end
+end
+
+%factor matrix indexed by a,m
+f = [.7 .3 ; .01 .99];
+
+for a = 1:2
+    for m = 1:2
+        if strcmp(to_node.name,'vn_a')
+            message(a,j) = node.m{1}(j);
+        elseif strcmp(to_node.name,'vn_j')
+            message(a,j) = node.m{2}(a);
+        end

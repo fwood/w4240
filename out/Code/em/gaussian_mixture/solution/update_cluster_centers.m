@@ -1,0 +1,28 @@
+function [new_centers assignments] = update_cluster_centers(cluster_centers,data)
+%cluster centers are column vectors
+
+[n d] = size(data);
+k = size(cluster_centers,2);
+
+dist = zeros(n,k);
+for i = 1 : k
+    dd = data - repmat(cluster_centers(:,i)',n,1);
+    dd = dd.^2;
+    dist(:,i) = sqrt(sum(dd,2));
+end
+
+[m l] = min(dist,[],2);
+
+new_centers = zeros(d,k);
+for i = 1  : k
+    if sum(l==i) > 0
+        new_centers(:,i) = mean(data(l == i,:));
+    else
+        new_centers(:,i) = data(ceil(unifrnd(0,n)),:)';
+    end    
+end
+
+assignments = l;
+
+figure(2)
+gscatter(data(:,1), data(:,2) ,l);

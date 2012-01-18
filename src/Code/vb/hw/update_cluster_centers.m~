@@ -1,0 +1,32 @@
+function [new_centers assignments] = update_cluster_centers(cluster_centers,data)
+%Gets the new cluster centers for the k clusters in the k-means algorithm
+%as well as the cluster assignments per data point.
+%
+%@param cluster_centers     : d x k matrix with cluster means in the
+%columns
+
+[n d] = size(data);
+k = size(cluster_centers,2);
+
+dist = zeros(n,k);
+for i = 1 : k
+    dd = data - repmat(cluster_centers(:,i)',n,1);
+    dd = dd.^2;
+    dist(:,i) = sqrt(sum(dd,2));
+end
+
+[m l] = min(dist,[],2);
+
+new_centers = zeros(d,k);
+for i = 1  : k
+    if sum(l==i) > 0
+        new_centers(:,i) = mean(data(l == i,:));
+    else
+        new_centers(:,i) = data(ceil(unifrnd(0,n)),:)';
+    end    
+end
+
+assignments = l;
+
+figure(2)
+plot_d_dimensional_mixture_data(data,l)

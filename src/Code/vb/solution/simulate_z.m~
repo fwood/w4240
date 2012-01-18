@@ -1,0 +1,7 @@
+function z_sample = simulate_z(r)
+%T
+for i = 1 : n
+    
+end
+
+z_sample = randsample(1:size(r,2),1,true,r);
