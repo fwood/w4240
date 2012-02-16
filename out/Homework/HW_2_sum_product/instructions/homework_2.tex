@@ -45,7 +45,7 @@
 	\item Open MATLAB and navigate to the folder containing the downloaded material
 \end{enumerate}
 
-For this homework the code is quite a bit more complex.  Graphical data structures are difficult to deal with unless you use programing techniques such as recursion and an object oriented paradigm. You will not have to program these things yourself, but you will be much more likely to complete the project correctly if you understand the concepts.  Recursion is simply when a function calls itself.  When writing general functions to operate on graphs the concept is useful if you want to do an operation, such as message passing, for every node in the graph. \\
+For this homework the code is quite a bit more complex.  Graphical data structures are difficult to deal with unless you use programing techniques such as recursion and an object oriented paradigm. You will not have to program these things yourself, but you will be much more likely to complete the project correctly if you understand the concepts.  Recursion is simply when a function calls itself.  When writing general functions to operate on graphs the concept is useful if you want to do an operation, such as message passing for every node in the graph. \\
 
 Object oriented programing is a paradigm where you write code to define generic objects and then ``instantiate" instances of those objects to perform a task.  Generic object definitions are called classes.  For instance, you might write code to define a variable node and then create a graphical model by instantiating the appropriate number of them.  Objects usually have fields and methods associated with them.  Fields are properties, such as if a node has been observed or not or the messages a node has received.  Methods are functions associated with the object which can act on the properties of the object and can take outside arguments.  For example, it would be useful to have a method which can act on the internal properties of the object and return the outgoing message to a particular factor node. The node will have as properties the most recent messages it has received and can then calculate the correct message to return. \\
 
@@ -68,7 +68,7 @@ I expect this HW to be quit a difficult task due to the programming component.  
 		\item explicit\_algorithm/get\_message\_vn.m
 	 \end{enumerate}
 	 
-	 The graphical structure is set up in main\_alarm\_network.m.  At the bottom of that file you can see an example of inference in the model with no values set. {\bf Please edit this file to calculate the probability there was a burglary given that John called}. Finally, since the model is so small, please make sure that you are calculating the correct conditional distributions by explicitly calculating the probability of every configuration of the variables and then summing out the appropriate variables.\\
+	 The graphical structure is set up in main\_alarm\_network.m.  At the bottom of that file you can see an example of inference in the model with no values set. {\bf Please edit this file to calculate the probability there was a burglary given that John called}. Finally, since the model is so small, ensure that you are calculating the correct conditional distributions by explicitly calculating the probability of every configuration of the variables and then summing out the appropriate variables.\\
 	 \begin{figure*}
 		\begin{center}
 			\scalebox{.6}{\includegraphics{alarm_bn_params.png} }% [clip=true, viewport= 1in 1in 9in 9in]
@@ -109,7 +109,7 @@ I expect this HW to be quit a difficult task due to the programming component.  
 You must complete this HW assignment on your own, you are not permitted to work with any one else on the completion of this task.  Your grade will reflect your ability to implement a working version of the procedure.  Submitted code must run on my machine in less than 3 minutes.  Grading will be automated and the submitted files will be run, therefore to submit the HW you will need to follow the following directions exactly.
 
 \begin{enumerate}
-	\item Send an email to w4240.spring2011.stat.columbia.edu@gmail.com
+	\item Send an email to Stat.W4240@gmail.com
 	\item {Attach your updated MATLAB files 
 		\begin{enumerate}
 			\item explicit\_algorithm/main\_alarm\_network.m
@@ -125,7 +125,7 @@ You must complete this HW assignment on your own, you are not permitted to work 
 			\item object\_oriented\_algorithm/@variable\_node/variable\_node.m
 			\item (for students enrolled in {\bf G6240}) object\_oriented\_algorithm/main\_image\_denoise.m
 		\end{enumerate} It is imperative that the names be exactly as described here. There should be no folders attached, only raw .m files.  You may not attach other MATLAB code files. }
-	\item The subject will be exactly your Columbia UNI followed by a colon followed by hw2.  For example, if the TA were submitting this homework the subject would read {\bf nsb2130:hw2}
+	\item The subject will be exactly your Columbia UNI followed by a colon followed by hw2.  For example, if the professor were submitting this homework the subject would read {\bf fw2196:hw2}
 	\item If you submit hw more than once, later files will overwrite earlier files.
 \end{enumerate}
 

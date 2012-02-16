@@ -4,6 +4,17 @@ in_menu: true
 routed_title: Project
 ---
 
+Passing Examples :
+--------------------------------
+
+* [Eye-to-Eye](examples/eye_to_eye.pdf) : The most well-formed project proposal.  This group has already moved past the submission stage and has started fleshing out the final project body.  The original proposal contained a very clear problem description, a very clear model (incorrect but present), and a path for getting to the solution.  Latent variables were identified, etc.  
+
+* [Map-Via-HMM](examples/campus_picture_hmm.pdf) : This was probably the weakest of the passing proposals.  It should have had a more mathematical description of the problem, however, given the problem setup it was clear what the problem was, what the latent variables were, how the data would be obtained, and what the inference challenges would be.
+
+* [Tissue-Classification](examples/tissue_classification.pdf) : This was right in the middle.  Safe, well-crafted, clear problem.  Where are the boundaries of a particular tissue type?  Not mathematically precise enough either, but, that's what we're learning about isn't it?
+ 
+
+
 Final Project Instructions
 ==========================
 <br></br>
