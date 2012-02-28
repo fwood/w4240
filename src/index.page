@@ -5,7 +5,7 @@ routed_title: Home
 sort_info: 0
 ---
 
-Data mining:  What is it?
+Data mining:  What is it really?
 
 Data mining is all about two things: automation (i.e. computers, programming, etc.) and inference (i.e. statistics, machine learning, etc.).  In other words, given a huge amount of data, how can we build tools to learn from it automatically?  There are very general tools that have been developed to answer these kinds of problems.  In this class you'll learn about them in a very hands on and practical way.  You will actually build the tools you will need in the future when you "do" data mining.
 
