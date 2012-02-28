@@ -11,13 +11,16 @@ student = 'solutionCode';
 
 %problem 1;
 restoredefaultpath;
-p = ['../hw2/' student '/explicit_algorithm/'];
+p = ['../hw2/' student '/explicit/'];
+
 disp(p)
 
-addpath(p)
+addpath(p);
+p = 'explicit/';
+addpath(p);
+
 
 main_alarm_network
-
 check_get_messages
 
 
