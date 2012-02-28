@@ -25,11 +25,14 @@ m33 = get_m(fn_aj, vn_j);
 m33 = m33 / sum(m33);
 
 
-if (max(m1(:) - m11) > .001 || max(m2(:) - m22) > .001)
+% gusl: replace "max" with "max(abs("
+
+
+if (max(abs(m1(:) - m11)) > .001 || max(abs(m2(:) - m22)) > .001)
     disp('get message_vn is broken');
 end
 
-if (max(m3(:) - m33) > 0.001)
+if (max(abs(m3(:) - m33)) > 0.001)
     disp('message from john is incorrect');
 end
 
@@ -51,7 +54,7 @@ cd ~/Documents/ta/w4240/hw/hw2_grading/
 m11 = get_m(vn_e);
 m11 = m11 / sum(m1);
 
-if (max(m1 - m11) > 0.001)
+if (max(abs(m1 - m11)) > 0.001)
     disp('get_message_fn_e is broken')
 end
 
@@ -73,7 +76,7 @@ cd ~/Documents/ta/w4240/hw/hw2_grading/
 m11 = get_m(vn_b);
 m11 = m11 / sum(m1);
 
-if (max(m1 - m11) > 0.001)
+if (max(abs(m1 - m11)) > 0.001)
     disp('get_message_fn_b is broken')
 end
 
@@ -103,7 +106,7 @@ m22 = m22 / sum(m22);
 m33 = get_m(vn_a);
 m33 = m33 / sum(m33);
 
-if (max(m1 - m11) > 0.001 || max(m2 - m22) > 0.001 || max(m3 - m33) > 0.001)
+if (max(abs(m1 - m11)) > 0.001 || max(abs(m2 - m22)) > 0.001 || max(abs(m3 - m33)) > 0.001)
     disp('get_message_fn_bea is broken')
 end
 
@@ -129,7 +132,7 @@ m11 = m11 / sum(m11);
 m22 = get_m(vn_j);
 m22 = m22 / sum(m22);
 
-if (max(m1 - m11) > 0.001 || max(m2 - m22) > 0.001)
+if (max(abs(m1 - m11)) > 0.001 || max(abs(m2 - m22)) > 0.001)
     disp('get_message_fn_aj is broken')
 end
 
@@ -155,7 +158,7 @@ m11 = m11 / sum(m11);
 m22 = get_m(vn_m);
 m22 = m22 / sum(m22);
 
-if (max(m1 - m11) > 0.001 || max(m2 - m22) > 0.001)
+if (max(abs(m1 - m11)) > 0.001 || max(abs(m2 - m22)) > 0.001)
     disp('get_message_fn_am is broken')
 end
 
