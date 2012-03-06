@@ -55,7 +55,8 @@ In this homework you will need to implement the expectation and maximization ste
 	w_j &\sim& \textrm{Normal}(0, 1 / \alpha) \ \ \forall \ j \in \{1, \ldots, \textrm{length}(X_i) \}
 \end{eqnarray*}
 
-The only parameters of interest are $\alpha$ and $\beta$ and we wish to fit their values using maximum likelihood.  This requires the EM algorithm because you will integrate over the values of the weights $w$. You will need to consult the book and the programs provided to understand the function signatures.  Data is provided in the main file which you should use while developing your code.  %% However, make sure the functions will run on any dimensional design matrix.  I recommend you test your functions by testing them on synthetic data.\\}
+The only parameters of interest are $\alpha$ and $\beta$ and we wish to fit their values using maximum likelihood.  This requires the EM algorithm because you will integrate over the values of the weights $w$. You will need to consult the book and the programs provided to understand the function signatures.  Data is provided in the main file which you should use while developing your code.  %% However, make sure the functions will run on any dimensional design matrix.  I recommend you test your functions by testing them on synthetic data.
+\\}
 
 
 
@@ -63,12 +64,12 @@ The only parameters of interest are $\alpha$ and $\beta$ and we wish to fit thei
 
 
 
-\problem{25}{{\bf For w6240 ONLY} You need to write and submit a main\_6240.m file which implements the a stochastic gradient ascent version of the EM algorithm for the Gaussian mixture model.  If you need to create additional functions to make this work, please submit those as well.  By online stochastic gradient ascent I mean the following; consider that at each step of the EM algorithm the parameters of interest are updated to maximize the expectation (taken with respect to the posterior distribution conditional on all the data) of the log-likelihood (of all the data).  To create an online stochastic gradient ascent algorithm, first perform the E-step on only a subset of the data.  Then, find the values of the parameters which maximize the expected log-likelihood of that same subset of data.  Step the parameter values in the direction of the calculated maximizing parameters (on the subset) of length $\eta$.  Please implement this by looping through the data and using small, sequential chunks of the data.  Iterate until convergence, but note that the log-likelihood of the entire data set will not increase at every step.\\ \\ }
+\problem{25}{{\bf For w6240 ONLY} You need to write and submit a main\_6240.m file which implements the a stochastic gradient ascent version of the EM algorithm for the Gaussian mixture model.  If you need to create additional functions to make this work, please submit those as well.  By online stochastic gradient ascent we mean the following; consider that at each step of the EM algorithm the parameters of interest are updated to maximize the expectation (taken with respect to the posterior distribution conditional on all the data) of the log-likelihood (of all the data).  To create an online stochastic gradient ascent algorithm, first perform the E-step on only a subset of the data.  Then, find the values of the parameters which maximize the expected log-likelihood of that same subset of data.  Step the parameter values in the direction of the calculated maximizing parameters (on the subset) of length $\eta$.  Please implement this by looping through the data and using small, sequential chunks of the data.  Iterate until convergence, but note that the log-likelihood of the entire data set may not increase at every step.\\ \\ }
 
 
 {\bf Submitting your HW}
 
-You must complete this HW assignment on your own, you are not permitted to work with anyone else on the completion of this task.  Your grade will reflect your ability to implement a working version of the procedure.  Submitted code must run on my machine in less than 3 minutes.  Grading will be automated and the submitted files will be run.  Therefore, to submit the HW you will need to follow the following directions exactly.
+You must complete this HW assignment on your own, you are not permitted to work with anyone else on the completion of this task.  Your grade will reflect your ability to implement a working version of the procedure.  Submitted code must run on the grading machine in less than 3 minutes.  Grading will be automated and the submitted files will be run.  Therefore, to submit the HW you will need to follow the following directions exactly.
 
 \begin{enumerate}
 	\item Send an email to Stat.W4240@gmail.com
