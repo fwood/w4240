@@ -12,7 +12,7 @@
 % \pdfpageheight\paperheight
 
 % Basic User Defs
-
+ 
 \def\ds{\displaystyle}
 
 \newcommand{\ansbox}[1]
@@ -45,33 +45,33 @@
 	\item Open MATLAB and navigate to the folder containing the downloaded material
 \end{enumerate}
 
-In this home work you will need to implement the expectation and maximization steps of the EM algorithm for a Bayesian linear regression and a classical gaussian mixture model.\\
+In this homework you will need to implement the expectation and maximization steps of the EM algorithm for a Bayesian linear regression and a classical Gaussian mixture model.\\
 
 
-\problem{50}{Implement the the functions {\bf e\_step\_linear\_regression} and {\bf m\_step\_linear\_regression} to implement the EM algorithm for Bayesian linear regression.  The model being fit here is as follows
+\problem{50}{Implement the the functions {\bf e\_step\_linear\_regression} and {\bf m\_step\_linear\_regression} to implement the EM algorithm for Bayesian linear regression.  The model being fit here is as follows:
 
 \begin{eqnarray*}
 	Y_i &\sim& \textrm{Normal}(X_i^t \vec w, 1 / \beta) \ \ \forall \ i \in \{1, \ldots, n\} \\
 	w_j &\sim& \textrm{Normal}(0, 1 / \alpha) \ \ \forall \ j \in \{1, \ldots, \textrm{length}(X_i) \}
 \end{eqnarray*}
 
-The only parameters of interest are $\alpha$ and $\beta$ and we wish to fit their values using maximum likelihood.  This requires the EM algorithm because you will integrate over the values of the weights $w$. You will need to consult the book and the programs provided to understand the function signatures.  Data is provided in the main file which you should use while developing your code.  However, make sure the functions will run on any dimensional design matrix.  I recommend you test your functions by testing them on synthetic data.\\}
+The only parameters of interest are $\alpha$ and $\beta$ and we wish to fit their values using maximum likelihood.  This requires the EM algorithm because you will integrate over the values of the weights $w$. You will need to consult the book and the programs provided to understand the function signatures.  Data is provided in the main file which you should use while developing your code.  %% However, make sure the functions will run on any dimensional design matrix.  I recommend you test your functions by testing them on synthetic data.\\}
 
 
 
-\problem{50}{Implement the functions {\bf e\_step\_gaussian\_mixture}, {\bf m\_step\_gaussian\_mixture}, and {\bf log\_likelihood\_gaussian\_mixture} to implement the EM algorithm for a gaussian mixture model.  The data you are using is the Fisher iris data.  Each row of data consists of four measurements made regarding an iris flower.  You will need to cluster the measurements using EM on a gaussian mixture model.  You should make sure that the program runs no matter what choice of $k$ you make.  Also, make sure the functions will run on any dimensional real vector valued data with any chosen number of components.  I recommend you test your functions by testing them on synthetic data.\\}
+\problem{50}{Implement the functions {\bf e\_step\_gaussian\_mixture}, {\bf m\_step\_gaussian\_mixture}, and {\bf log\_likelihood\_gaussian\_mixture} to implement the EM algorithm for a Gaussian mixture model.  The data you are using is the Fisher iris data.  Each row of data consists of four measurements made regarding an iris flower.  You will need to cluster the measurements using EM on a Gaussian mixture model.  You should make sure that the program runs no matter what choice of $k$ you make.  Also, make sure the functions will run on any dimensional real vector valued data with any chosen number of components.  I recommend you test your functions by testing them on synthetic data.\\}
 
 
 
-\problem{25}{{\bf For w6240 ONLY} You need to write and submit a main\_6240.m file which implements the a stochastic gradient ascent version of the EM algorithm for the gaussian mixture model.  If you need to create additional functions to make this work, please submit those as well.  By online stochastic gradient ascent I mean the following; consider that at each step of the EM algorithm the parameters of interest are updated to maximize the expectation (taken with respect to the posterior distribution conditioned on all the data) of the log likelihood (of all the data).  To create an online stochastic gradient ascent approach, first perform the e-step on only a subset of the data.  Then, find the values of the parameters which maximize the expected log likelihood of that same subset of data.  Step the parameter values in the direction of the calculated maxizing parameters (on the subset) of length $\eta$.  Please implement this by looping through the data and using small, sequential chunks of the data.  Iterate until convergence, but note that the log likelihood of the entire data set will not increase at every step.\\ \\ }
+\problem{25}{{\bf For w6240 ONLY} You need to write and submit a main\_6240.m file which implements the a stochastic gradient ascent version of the EM algorithm for the Gaussian mixture model.  If you need to create additional functions to make this work, please submit those as well.  By online stochastic gradient ascent I mean the following; consider that at each step of the EM algorithm the parameters of interest are updated to maximize the expectation (taken with respect to the posterior distribution conditional on all the data) of the log-likelihood (of all the data).  To create an online stochastic gradient ascent algorithm, first perform the E-step on only a subset of the data.  Then, find the values of the parameters which maximize the expected log-likelihood of that same subset of data.  Step the parameter values in the direction of the calculated maximizing parameters (on the subset) of length $\eta$.  Please implement this by looping through the data and using small, sequential chunks of the data.  Iterate until convergence, but note that the log-likelihood of the entire data set will not increase at every step.\\ \\ }
 
 
 {\bf Submitting your HW}
 
-You must complete this HW assignment on your own, you are not permitted to work with any one else on the completion of this task.  Your grade will reflect your ability to implement a working version of the procedure.  Submitted code must run on my machine in less than 3 minutes.  Grading will be automated and the submitted files will be run, therefore to submit the HW you will need to follow the following directions exactly.
+You must complete this HW assignment on your own, you are not permitted to work with anyone else on the completion of this task.  Your grade will reflect your ability to implement a working version of the procedure.  Submitted code must run on my machine in less than 3 minutes.  Grading will be automated and the submitted files will be run.  Therefore, to submit the HW you will need to follow the following directions exactly.
 
 \begin{enumerate}
-	\item Send an email to w4240.spring2011.stat.columbia.edu@gmail.com
+	\item Send an email to Stat.W4240@gmail.com
 	\item {Attach your updated MATLAB files 
 		\begin{enumerate}
 			\item e\_step\_linear\_regression.m
@@ -80,8 +80,8 @@ You must complete this HW assignment on your own, you are not permitted to work 
 			\item m\_step\_gaussian\_mixture.m
 			\item  log\_likelihood\_gaussian\_mixture.m
 		\end{enumerate} It is imperative that the names be exactly as described here. There should be no folders attached, only raw .m files.  You may not attach other MATLAB code files. }
-	\item The subject will be exactly your Columbia UNI followed by a colon followed by hw3.  For example, if the TA were submitting this homework the subject would read {\bf nsb2130:hw3}
-	\item If you submit hw more than once, later files will overwrite earlier files.
+	\item The subject will be exactly your Columbia UNI followed by a colon followed by hw3.  For example, if the TA were submitting this homework the subject would read {\bf gl2365:hw3}
+	\item If you submit more than once, later files will overwrite earlier files.
 \end{enumerate}
 
 % Problems End Here % ------------------------------------------------------- %
