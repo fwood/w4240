@@ -19,6 +19,11 @@
 %k = 25;
 e = .01;
 
+format short g;
+t1 = fix(clock);
+start_min = t1(5);
+disp(['The start time is: ' num2str(t1(4)) ':' num2str(t1(5)) ':' num2str(t1(6))]);
+
 load fisheriris
 
 data = meas;
@@ -58,7 +63,15 @@ while ll + e < nll
     nll = log_likelihood_gaussian_mixture(data,mu,sigma,pi);
     disp(['the log likelihood = ' num2str(nll)]);
     
+    now = fix(clock);
+    if (start_min <= now(5) - 4)
+        break;
+    end
+    
     [m labels] = max(gamma,[],2);
     figure(2)
     plot_data(data,labels);
 end
+t2 = fix(clock);
+disp(['The end time is: ' num2str(t2(4)) ':' num2str(t2(5)) ':' num2str(t2(6))]);
+disp(['The run time is: ' num2str(etime(t2, t1)) 's']);
