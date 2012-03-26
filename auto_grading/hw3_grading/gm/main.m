@@ -16,7 +16,7 @@
 
 % k is the number of clusters to use, you should experiment with this
 % number and MAKE SURE YOUR CODE WORKS FOR ANY VALUE OF K >= 1
-%k = 25;
+%k = 2;
 e = .01;
 
 format short g;
