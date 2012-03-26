@@ -7,6 +7,10 @@ function gamma = e_step(data,pi,mu,sigma)
 % @param    sigma: cell array of class covariance matrices (d x d)
 %
 % @return   gamma: n x k matrix of responsibilities
+%i=0;
+%while (1>0)
+%    i = i + 1;
+%end
 
 k = size(pi,1);
 n = size(data,1);
