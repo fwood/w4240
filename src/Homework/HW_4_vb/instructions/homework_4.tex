@@ -36,7 +36,7 @@
 	\item Open MATLAB and navigate to the folder containing the downloaded material
 \end{enumerate}
 
-In this homework you need to implement variational Bayesian inference for the gaussian mixture model.  You will also need to implement the k-means algorithm.  The clustering obtained by k-means will then be used as an initialization for the variational algorithm.\\ 
+In this homework you need to implement variational Bayesian inference for the Gaussian mixture model.  You will also need to implement the k-means algorithm.  The clustering obtained by k-means will then be used as an initialization for the variational algorithm.\\ 
 
 \problem{25}{Implement a k-means clustering algorithm.  This should be done by filling out the two functions {\bf update\_cluster\_centers.m} and  {\bf k\_means.m}.  The final return will be a list of cluster assignments, one for each data point.  After writing these functions you should be able to cluster $d$-dimensional data using the algorithm.  Since you will be using the output as an initialization you should program the algorithm in such a way that it returns $k$ clusters, i.e., that it does not collapse to fewer clusters than the input number $k$.  If you find that a cluster has no data points assigned to it during the algorithm, one potential solution is to assign that cluster mean to the value of a randomly chosen data point.  K-means is an iterative algorithm, but in this code you can hardcode the number of iterations to 10.\\ \\}
 
@@ -60,7 +60,7 @@ $$\frac{1}{{N \choose 2}} \sum_{i  = 1}^N \sum_{j = i +1}^N \left[ ({\rm SameClu
 You must complete this HW assignment on your own, you are not permitted to work with any one else on the completion of this task.  Your grade will reflect your ability to implement a working version of the procedure.  Submitted code must run on my machine in less than 3 minutes.  Grading will be automated and the submitted files will be run, therefore to submit the HW you will need to follow the following directions exactly.
 
 \begin{enumerate}
-	\item Send an email to w4240.spring2011.stat.columbia.edu@gmail.com
+	\item Send an email to Stat.W4240@gmail.com
 	\item {Attach your updated MATLAB files 
 		\begin{enumerate}
 			\item {\bf update\_cluster\_centers.m} 
