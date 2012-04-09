@@ -1,6 +1,6 @@
 %function check_e_m(X, Y)
-alpha = .5;
-beta = .5;
+alpha = .5;beta = .5;
+m = 0;m2 = 0;s = 0;s2 = 0;mm = 0;s_diff = 0;ss = 0;a = 0;a2 = 0;b = 0;b2 = 0;aa = 0;bb = 0;
 
 [m s] = e_step_linear_regression(X, Y, alpha, beta);
 

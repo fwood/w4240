@@ -33,7 +33,7 @@ Number_of_Files_Not_Given_By_Students_in_Path_of_Student_HW = 0;
 % program again you would get complete scores. Of course, if it is 
 % your first time use this program, please make sure the following 
 % variable's value is 1.
-Whether_First_Time_Run_This_Program = 1;
+Whether_First_Time_Run_This_Program = 0;
 
 ids = dir('../hw3/'); ids2 = struct2cell(ids); ids3 = ids2(:); ids4 = ids3(1:5:size(ids3,1));
 ids5 = ids4(3:size(ids4,1)); ids6 = ids5(1:(size(ids5)-Number_of_Files_Not_Given_By_Students_in_Path_of_Student_HW),1);
@@ -45,10 +45,10 @@ if Whether_First_Time_Run_This_Program == 1
     fprintf(fid,'Uni,');
     fprintf(fid,'crashed in LRbasic test,loglikehood wrong in LRbasic test,alpha wrong in LRbasic test,beta wrong in LRbasic test,run time over in LRbasic test,');
     fprintf(fid,'crashed in LRadvanced test,loglikehood wrong in LRadvanced test,alpha wrong in LRadvanced test,beta wrong in LRadvanced test,run time over in LRadvanced test,');
-    fprintf(fid,'crashed in check regress,m wrong in check regress,s wroing in check regress,a wroing in check regress,b wroing in check regress,');
+    fprintf(fid,'crashed in check regress,m wrong in check regress,s wrong in check regress,a wrong in check regress,b wrong in check regress,');
     fprintf(fid,'crashed in GMbaisc test,gamma wrong in GMbaisc test,loglikelihood wroing in GMbaisc test,run time over in GMbasic test,');
-    fprintf(fid,'crashed in GMadvanced test,loglikelihood wroing in GMadvanced test,run time over in GMadvanced test,');
     fprintf(fid,'crashed in in check gm,mu wrong in check gm,p dim wrong in check gm,p wrong in check gm,not use cell erray,s wrong in check gm,g wrong in check gm,biased not added,');
+    fprintf(fid,'crashed in GMadvanced test,loglikelihood wroing in GMadvanced test,run time over in GMadvanced test,');
     fclose(fid);
 end
 
@@ -56,9 +56,9 @@ end
 for i = 1 : size(uni_list,1)
     % Please don't forget to change this variable's value if necessary.
     Number_of_Files_Not_Given_By_Students_in_Path_of_Student_HW = 0;
-
+    restoredefaultpath;
     % Generate a uni list from file 'hw3' again, since everything would be 
-    % clear during the loop.
+    % cleared during the loop.
     ids = dir('../hw3/');
     ids2 = struct2cell(ids);
     ids3 = ids2(:);
@@ -102,33 +102,24 @@ for i = 1 : size(uni_list,1)
 
     fprintf('\n \n')
 	cd lr/
-    trial = fopen('trial.txt','w');
-    fprintf(trial,'True');
-    fclose(trial);
     try
         clear
         clear global
         d = 15;
+        broke_indicater = 0;
         load data_linear_regression
         main
     catch e
         e.getReport()
         disp('broke in regular linear regress')
-        trial = fopen('trial.txt','w');
-        fprintf(trial,'broke_in_regular_linear_regress');
-        fclose(trial);
+        broke_indicater = 1;
     end
 
-    trial = fopen('trial.txt','r');
-    Token = textscan(trial,'%s %f','Delimiter',',');
-    fclose(trial);
     cd ..
     fid = fopen('BeforeGrading.csv','a');
     %Check whether the program crashed in the test. If crashed, write a "1" 
     %to the 'BeforeGrading.csv'.
-    broke_indicater = 0;
-    if (strcmp(Token{1}{1}, 'broke_in_regular_linear_regress'))
-        broke_indicater = 1;
+    if (broke_indicater == 1)        
         fprintf(fid,[num2str(1) ',']);
     else
         fprintf(fid,[num2str(0) ',']);
@@ -156,7 +147,7 @@ for i = 1 : size(uni_list,1)
     end
 	%Check whether the run time is more than 4 min in the test. If more 
     %than 4', write a "1" to the 'BeforeGrading.csv'.
-    if ((etime(t2, t1) > 240) || (broke_indicater == 1))
+    if ((etime(t2, t1) > 230) || (broke_indicater == 1))
         fprintf(fid,[num2str(1) ',']);
     else
         fprintf(fid,[num2str(0) ',']);
@@ -166,33 +157,24 @@ for i = 1 : size(uni_list,1)
     
     fprintf('\n \n')
 	cd lr/
-    trial = fopen('trial.txt','w');
-    fprintf(trial,'True');
-    fclose(trial);
     try
         clear
         clear global
         d = 199;
+        broke_indicater = 0;
         load data_test
         main
     catch e
         e.getReport()
         disp('broke in test regress')
-        trial = fopen('trial.txt','w');
-        fprintf(trial,'broke in test regress');
-        fclose(trial);
+        broke_indicater = 1;
     end
     
-    trial = fopen('trial.txt','r');
-    Token = textscan(trial,'%s %f','Delimiter',',');
-    fclose(trial);
     cd ..
     fid = fopen('BeforeGrading.csv','a');
     %Check whether the program crashed in the test. If crashed, write a "1" 
     %to the 'BeforeGrading.csv'.
-    broke_indicater = 0;
-    if (strcmp(Token{1}{1}, 'broke in test regress'))
-        broke_indicater = 1;
+    if (broke_indicater == 1)
         fprintf(fid,[num2str(1) ',']);
     else
         fprintf(fid,[num2str(0) ',']);
@@ -220,7 +202,7 @@ for i = 1 : size(uni_list,1)
     end
 	%Check whether the run time is more than 4 min in the test. If more 
     %than 4', write a "1" to the 'BeforeGrading.csv'.
-    if ((etime(t2, t1) > 240) || (broke_indicater == 1))
+    if ((etime(t2, t1) > 230) || (broke_indicater == 1))
         fprintf(fid,[num2str(1) ',']);
     else
         fprintf(fid,[num2str(0) ',']);
@@ -230,33 +212,24 @@ for i = 1 : size(uni_list,1)
     
     fprintf('\n \n')
 	cd lr/
-    trial = fopen('trial.txt','w');
-    fprintf(trial,'True');
-    fclose(trial);
     try
         clear
         clear global
+        broke_indicater = 0;
         load data_linear_regression
         check_e_m%(X,Y);
     catch e
         e.getReport()
         disp('broke in check regress')
-        trial = fopen('trial.txt','w');
-        fprintf(trial,'broke in check regress');
-        fclose(trial);
+        broke_indicater = 1;
     end
     
-    trial = fopen('trial.txt','r');
-    Token = textscan(trial,'%s %f','Delimiter',',');
-    fclose(trial);
     cd ..
     fid = fopen('BeforeGrading.csv','a');
     
 	%Check whether the program crashed in the test. If crashed, write a "1" 
     %to the 'BeforeGrading.csv'.
-    broke_indicater = 0;
-    if (strcmp(Token{1}{1}, 'broke in check regress'))
-        broke_indicater = 1;
+    if (broke_indicater == 1)
         fprintf(fid,[num2str(1) ',']);
     else
         fprintf(fid,[num2str(0) ',']);
@@ -302,34 +275,25 @@ for i = 1 : size(uni_list,1)
 
     fprintf('\n \n')
     cd gm/
-    trial = fopen('trial.txt','w');
-    fprintf(trial,'True');
-    fclose(trial);
-    
+   
     try
         clear
         clear global
+        broke_indicater = 0;
         load gamma
         load gamma_ans
         main
     catch e
         e.getReport()
         disp('broke in regular gm')
-        trial = fopen('trial.txt','w');
-        fprintf(trial,'broke in regular gm');
-        fclose(trial);
+        broke_indicater = 1;
     end
     
-	trial = fopen('trial.txt','r');
-    Token = textscan(trial,'%s %f','Delimiter',',');
-    fclose(trial);
-    cd ..
+	cd ..
     fid = fopen('BeforeGrading.csv','a');
 	%Check whether the program crashed in the test. If crashed, write a "1" 
     %to the 'BeforeGrading.csv'.
-    broke_indicater = 0;
-    if (strcmp(Token{1}{1}, 'broke in regular gm'))
-        broke_indicater = 1;
+    if (broke_indicater == 1)
         fprintf(fid,[num2str(1) ',']);
     else
         fprintf(fid,[num2str(0) ',']);
@@ -344,14 +308,18 @@ for i = 1 : size(uni_list,1)
     end
 	%Check whether the loglikelihood is right. If wrong, write a "1" to the 
     %'BeforeGrading.csv'.
-	if ((abs(nll - (-212.3695)) > 10) || (broke_indicater == 1))
-        fprintf(fid,[num2str(1) ',']);
+    if (ll ~= -Inf)
+    	if ((abs(nll - ll) > error) || (broke_indicater == 1))
+            fprintf(fid,[num2str(1) ',']);
+        else
+            fprintf(fid,[num2str(0) ',']);
+        end
     else
-        fprintf(fid,[num2str(0) ',']);
+        fprintf(fid,[num2str(1) ',']);
     end
 	%Check whether the run time is too long. If too long, write a "1" to the 
     %'BeforeGrading.csv'.
-	if ((etime(t2, t1) > 240) || (broke_indicater == 1))
+	if ((etime(t2, t1) > 230) || (broke_indicater == 1))
         fprintf(fid,[num2str(1) ',']);
     else
         fprintf(fid,[num2str(0) ',']);
@@ -359,64 +327,15 @@ for i = 1 : size(uni_list,1)
     fclose(fid);
     
 
-    fprintf('\n \n')
+	fprintf('\n \n')
     cd gm/
-    trial = fopen('trial.txt','w');
-    fprintf(trial,'True');
-    fclose(trial);
-
+    
     try
         clear
         clear global
-        load gamma_test
-        main
-    catch e
-        e.getReport()
-        disp('broke in test gm')
-        trial = fopen('trial.txt','w');
-        fprintf(trial,'broke in test gm');
-        fclose(trial);
-    end
-    
-	trial = fopen('trial.txt','r');
-    Token = textscan(trial,'%s %f','Delimiter',',');
-    fclose(trial);
-    cd ..
-    fid = fopen('BeforeGrading.csv','a');
-	%Check whether the program crashed in the test. If crashed, write a "1" 
-    %to the 'BeforeGrading.csv'.
-    broke_indicater = 0;
-    if (strcmp(Token{1}{1}, 'broke in test gm'))
-        broke_indicater = 1;
-        fprintf(fid,[num2str(1) ',']);
-    else
-        fprintf(fid,[num2str(0) ',']);
-    end
-	%Check whether the loglikelihood is right. If wrong, write a "1" to the 
-    %'BeforeGrading.csv'.
-	if ((abs(nll - (-150.2529)) > 100) || (broke_indicater == 1))
-        fprintf(fid,[num2str(1) ',']);
-    else
-        fprintf(fid,[num2str(0) ',']);
-    end
-	%Check whether the run time is too long. If too long, write a "1" to the 
-    %'BeforeGrading.csv'.
-	if ((etime(t2, t1) > 240) || (broke_indicater == 1))
-        fprintf(fid,[num2str(1) ',']);
-    else
-        fprintf(fid,[num2str(0) ',']);
-    end
-    fclose(fid);
-    
-    fprintf('\n \n')
-    cd gm/
-    trial = fopen('trial.txt','w');
-    fprintf(trial,'True');
-    fclose(trial);
-
-    try
-        clear
-        clear global
+        m = 0;s = 0;p = 0;m2 = 0;s2 = 0;p2 = 0;mm = 0;s_diff = 0;ss = 0;a = 0;a2 = 0;b = 0;b2 = 0;aa = 0;bb = 0;
+        m_diff = 0;dim_p = 0; p_diff = 0; cell_indicater=0; d1 = 0;d2 = 0;g_diff = 0;
+        broke_indicater = 0;
         load gamma_10_2_test_e_m_step
         load data_10_4_test_e_step
         load data_10_4_test_m_step
@@ -424,21 +343,14 @@ for i = 1 : size(uni_list,1)
     catch e
         e.getReport()
         disp('broke in check gm')
-        trial = fopen('trial.txt','w');
-        fprintf(trial,'broke in check gm');
-        fclose(trial);
+        broke_indicater = 1;
     end
     
-    trial = fopen('trial.txt','r');
-    Token = textscan(trial,'%s %f','Delimiter',',');
-    fclose(trial);
     cd ..
     fid = fopen('BeforeGrading.csv','a');
 	%Check whether the program crashed in the test. If crashed, write a "1" 
     %to the 'BeforeGrading.csv'.
-    broke_indicater = 0;
-    if (strcmp(Token{1}{1}, 'broke in check gm'))
-        broke_indicater = 1;
+    if (broke_indicater == 1)
         fprintf(fid,[num2str(1) ',']);
     else
         fprintf(fid,[num2str(0) ',']);
@@ -496,6 +408,54 @@ for i = 1 : size(uni_list,1)
     fclose(fid);
     
     
+    
+    fprintf('\n \n')
+    cd gm/
+    
+    try
+        clear
+        clear global
+        broke_indicater = 0;
+        load gamma_test
+        main
+    catch e
+        e.getReport()
+        disp('broke in test gm')
+        broke_indicater = 1;
+    end
+    
+    cd ..
+    fid = fopen('BeforeGrading.csv','a');
+	%Check whether the program crashed in the test. If crashed, write a "1" 
+    %to the 'BeforeGrading.csv'.
+    if (broke_indicater == 1)
+        fprintf(fid,[num2str(1) ',']);
+    else
+        fprintf(fid,[num2str(0) ',']);
+    end
+	%Check whether the loglikelihood is right. If wrong, write a "1" to the 
+    %'BeforeGrading.csv'.
+    if (ll ~= -Inf)
+    	if ((abs(nll - (ll)) > error) || (broke_indicater == 1))
+            fprintf(fid,[num2str(1) ',']);
+        else
+            fprintf(fid,[num2str(0) ',']);
+        end
+    else
+        fprintf(fid,[num2str(1) ',']);
+    end
+	%Check whether the run time is too long. If too long, write a "1" to the 
+    %'BeforeGrading.csv'.
+	if ((etime(t2, t1) > 230) || (broke_indicater == 1))
+        fprintf(fid,[num2str(1) ',']);
+    else
+        fprintf(fid,[num2str(0) ',']);
+    end
+    fclose(fid);
+    
+
+    
+    
     restoredefaultpath;
 end
 
@@ -509,12 +469,12 @@ fclose(fid);
 fid = fopen('Grade.csv','a');
 for i = 1 : length(uni_score{1})
     grades = 100;
-    grades = grades - uni_score{2}(i) * 7 - uni_score{3}(i) * 5 - uni_score{4}(i) * 5 - uni_score{5}(i) * 5 - uni_score{6}(i) * 3;
-    grades = grades - uni_score{7}(i) * 2 - uni_score{8}(i) * 2 - uni_score{9}(i) * 2 - uni_score{10}(i) * 2 - uni_score{11}(i) * 2;
-    grades = grades - uni_score{12}(i) * 3 - uni_score{13}(i) * 3 - uni_score{14}(i) * 3 - uni_score{15}(i) * 3 - uni_score{16}(i) * 3;
-    grades = grades - uni_score{17}(i) * 1 - uni_score{18}(i) * 3 - uni_score{19}(i) * 1 - uni_score{20}(i) * 1;
-    grades = grades - uni_score{21}(i) * 1 - uni_score{22}(i) * 1 - uni_score{23}(i) * 1;
-    grades = grades - uni_score{24}(i) * 1 - uni_score{25}(i) * 3 - uni_score{26}(i) * 1 - uni_score{27}(i) * 3 - uni_score{28}(i) * 1 - uni_score{29}(i) * 3 - uni_score{30}(i) * 3 - uni_score{31}(i) * 25;
+    grades = grades - uni_score{2}(i) * 0 - uni_score{3}(i) * 10 - uni_score{4}(i) * 5 - uni_score{5}(i) * 5 - uni_score{6}(i) * 5;
+    grades = grades - uni_score{7}(i) * 0 - uni_score{8}(i) * 4 - uni_score{9}(i) * 2 - uni_score{10}(i) * 2 - uni_score{11}(i) * 2;
+    grades = grades - uni_score{12}(i) * 0 - uni_score{13}(i) * 4 - uni_score{14}(i) * 3 - uni_score{15}(i) * 4 - uni_score{16}(i) * 4;
+    grades = grades - uni_score{17}(i) * 0 - uni_score{18}(i) * 0 - uni_score{19}(i) * 8 - uni_score{20}(i) * 2;
+    grades = grades - uni_score{21}(i) * 0 - uni_score{22}(i) * 2 - uni_score{23}(i) * 0 - uni_score{24}(i) * 2 - uni_score{25}(i) * 0 - uni_score{26}(i) * 2 - uni_score{27}(i) * 2 - uni_score{28}(i) * 25;
+    grades = grades - uni_score{29}(i) * 0 - uni_score{30}(i) * 5 - uni_score{31}(i) * 2;
     fprintf(fid,[uni_score{1}{i} ',' num2str(grades) ',' '\n']);
 end
 fclose(fid);

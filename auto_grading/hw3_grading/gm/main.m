@@ -17,11 +17,12 @@
 % k is the number of clusters to use, you should experiment with this
 % number and MAKE SURE YOUR CODE WORKS FOR ANY VALUE OF K >= 1
 %k = 2;
-e = .01;
+error = .01;
+nll = 0;
 
 format short g;
 t1 = fix(clock);
-start_min = t1(5);
+t2 = t1 + 240;
 disp(['The start time is: ' num2str(t1(4)) ':' num2str(t1(5)) ':' num2str(t1(6))]);
 
 load fisheriris
@@ -56,18 +57,18 @@ nll = log_likelihood_gaussian_mixture(data,mu,sigma,pi);
 disp(['the log likelihood = ' num2str(nll);])
 
 % the loop iterates until convergence as determined by e.
-while ll + e < nll
+while ll + error < nll
+    now = fix(clock);
+    if ((etime(now, t1) > 240))
+        break;
+    end
+    
     ll = nll;
     gamma = e_step_gaussian_mixture(data,pi,mu,sigma);
     [mu,sigma,pi] = m_step_gaussian_mixture(data,gamma);
     nll = log_likelihood_gaussian_mixture(data,mu,sigma,pi);
     disp(['the log likelihood = ' num2str(nll)]);
-    
-    now = fix(clock);
-    if (start_min <= now(5) - 4)
-        break;
-    end
-    
+       
     [m labels] = max(gamma,[],2);
     figure(2)
     plot_data(data,labels);

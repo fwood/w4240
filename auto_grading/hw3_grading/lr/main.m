@@ -18,13 +18,13 @@
 
 %d = 199;
 %d = 15
-e = 0.00001;
+error = 0.00001;
 %load data_linear_regression
 %load data_test
 
 format short g;
 t1 = fix(clock);
-start_min = t1(5);
+t2 = t1 + 240;
 disp(['The start time is: ' num2str(t1(4)) ':' num2str(t1(5)) ':' num2str(t1(6))]);
 
 % randomly set alpha, beta, and m to start
@@ -38,15 +38,15 @@ disp(['log likelihood = ' num2str(ll) ', alpha = ' num2str(alpha) ', beta = ' nu
 
 
 while (true)
-    [m s] = e_step_linear_regression(X,Y,alpha,beta);
-    [alpha beta] = m_step_linear_regression(X,Y,m,s);
-
-    if (ll + e >= log_likelihood(X,Y,m,beta)) 
+    now = fix(clock);
+    if ((etime(now, t1) > 240))
         break;
     end
     
-    now = fix(clock);
-    if (start_min <= now(5) - 4)
+    [m s] = e_step_linear_regression(X,Y,alpha,beta);
+    [alpha beta] = m_step_linear_regression(X,Y,m,s);
+
+    if (ll + error >= log_likelihood(X,Y,m,beta)) 
         break;
     end
     
