@@ -63,11 +63,16 @@ while ll + error < nll
         break;
     end
     
+    
     ll = nll;
+    
     gamma = e_step_gaussian_mixture(data,pi,mu,sigma);
     [mu,sigma,pi] = m_step_gaussian_mixture(data,gamma);
     nll = log_likelihood_gaussian_mixture(data,mu,sigma,pi);
     disp(['the log likelihood = ' num2str(nll)]);
+    if (nll > 99999)
+        break;
+    end
        
     [m labels] = max(gamma,[],2);
     figure(2)

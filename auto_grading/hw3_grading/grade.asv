@@ -33,14 +33,14 @@ Number_of_Files_Not_Given_By_Students_in_Path_of_Student_HW = 0;
 % program again you would get complete scores. Of course, if it is 
 % your first time use this program, please make sure the following 
 % variable's value is 1.
-Whether_First_Time_Run_This_Program = 1;
+Whether_First_Time_Run_This_Program = 0;
 
 ids = dir('../hw3/'); ids2 = struct2cell(ids); ids3 = ids2(:); ids4 = ids3(1:5:size(ids3,1));
 ids5 = ids4(3:size(ids4,1)); ids6 = ids5(1:(size(ids5)-Number_of_Files_Not_Given_By_Students_in_Path_of_Student_HW),1);
 uni_list = ids6(:);
 
 % Generate the title for the csv file 'BeforeGrading.csv'.
-if Whether_First_Time_Run_This_Program == 0
+if Whether_First_Time_Run_This_Program == 1
     fid = fopen('BeforeGrading.csv','a');
     fprintf(fid,'Uni,');
     fprintf(fid,'crashed in LRbasic test,loglikehood wrong in LRbasic test,alpha wrong in LRbasic test,beta wrong in LRbasic test,run time over in LRbasic test,');
@@ -48,7 +48,7 @@ if Whether_First_Time_Run_This_Program == 0
     fprintf(fid,'crashed in check regress,m wrong in check regress,s wrong in check regress,a wrong in check regress,b wrong in check regress,');
     fprintf(fid,'crashed in GMbaisc test,Not converge in GMbaisc test,run time over in GMbasic test,');
     fprintf(fid,'crashed in in check gm,mu wrong in check gm,p dim wrong in check gm,p wrong in check gm,not use cell erray,s wrong in check gm,g wrong in check gm,biased not added,');
-    fprintf(fid,'crashed in GMadvanced test,Not converge in GMadvanced test,run time over in GMadvanced test,');
+    fprintf(fid,'crashed in GMadvanced test,loglikelihood wroing in GMadvanced test,run time over in GMadvanced test,');
     fclose(fid);
 end
 

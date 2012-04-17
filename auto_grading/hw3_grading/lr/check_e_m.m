@@ -13,8 +13,8 @@ s_diff = (s - s2).^2;
 ss = sum(s_diff(:));
 disp(['s diff = ' num2str(ss)])
 
-[a b] = m_step_linear_regression(X,Y,m,s);
-[a2 b2] = m_step(X,Y,m,s);
+[a b] = m_step_linear_regression(X,Y,m2,s2);
+[a2 b2] = m_step(X,Y,m2,s2);
 
 aa = (a - a2)^2;
 disp(['a diff = ' num2str(aa)]);
