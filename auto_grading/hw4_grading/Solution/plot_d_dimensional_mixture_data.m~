@@ -1,0 +1,8 @@
+function plot_d_dimensional_mixture_data(varargin)
+%assumes the first element of the argumesnt is thdata is n x d two dimensional matrix
+
+if nargin ==
+
+[n d] = size(data);
+w = princomp(data);
+

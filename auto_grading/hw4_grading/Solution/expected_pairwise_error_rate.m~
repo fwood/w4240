@@ -1,0 +1,15 @@
+function er = expected_pairwise_error_rate(data, r, labels)
+%@param data    : n x d data matrix
+%@param r       : n x k matrix of distributions over z
+%@param labels  : n x 1 matrix of labels
+
+[N D] = size(data);
+pair_matrix = zeros(N);
+
+for i = 1 : N
+    for j = (i + 1) : N
+        
+    end
+end
+
+

@@ -1,0 +1,12 @@
+function [W, m, pi] = sample_from_prior()
+
+K = 15;
+d = 4;
+
+global m_0 b_0 a_0 W_0 nu_0
+W = cell(k,1);
+m = zeros(d,k);
+
+for k = 1 : K
+    W{k} = wishrnd(W_0,nu_0);
+    m(:,k) = mvnrnd(m_0,inv(b_0 * W{k}));
