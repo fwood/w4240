@@ -5,10 +5,10 @@
 % uni. Do it for every student.
 % 2. Put all these files in a file named by 'hw4'.
 % 3. Please make sure that you have a file called 'hw4_grading', which contains
-% the grading program 'grade_Change' and file 'Solution'.
-% 4. Please delete 'Grade.csv' in file 'hw4_grading' if ther are there 
-% for the first time you use this program.
-% 5. Please generate a file called 'hw', and then put the file 'hw4' and 'hw4_grading'
+% the grading program 'grade_Change', file 'Solution'.
+% 4. Please delete 'BeforeGrading.csv' and 'Grade.csv' in file 
+% 'hw3_grading' if ther are there for the first time you use this program.
+% 5. Please generate a file called 'hw', and then put the file 'hw3' and 'hw3_grading'
 % into this file 'hw'.
 % 6. Now we've finished almost every preparation. Please make sure that every time 
 % before you run this program, check whether you assign the right value to 
